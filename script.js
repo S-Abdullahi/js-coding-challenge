@@ -122,3 +122,16 @@ if (day === 'monday'){
 } else{
     console.log(' not a valid date')
 }
+
+//TERNARY OPERATORS
+const age = 15
+const drink = age >= 18? 'wine🍷' : 'water💧'
+console.log(drink)
+
+
+//CODING CHALLENGE #4
+const bill = 275
+const tip = bill >= 50 && bill <= 300 ? 0.15 * bill : 0.2* bill
+const final = bill + tip
+
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${final}`)
