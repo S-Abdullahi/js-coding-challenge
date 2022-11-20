@@ -84,3 +84,41 @@ if (bonusOneDolphinAverage >= 100 || bonusOneKoalasAverage >= 100){
     console.log('no team wins')
 }
 
+//SWITCH STATEMENT
+const day = 'tuesday'
+
+switch(day){
+    case 'monday':
+        console.log('work day')
+        break;
+    case 'tuesday':
+        console.log('social day')
+        break;
+    case 'wednesday':
+    case 'thursday':
+        console.log('sport day')
+        break;
+    case 'friday':
+        console.log('thank God is friday')
+        break;
+    case 'saturday':
+    case 'sunday':
+        console.log('this is weekend')
+        break;
+    default:
+        console.log('not a valid day')   
+}
+
+if (day === 'monday'){
+    console.log('work day')
+} else if (day === 'tuesday'){
+    console.log('social day')
+} else if (day === 'thursday' || day === 'wednesday'){
+    console.log('sport day')
+} else if (day === 'friday'){
+    console.log('thank God is friday')
+} else if (day === 'saturday' || day === 'sunday'){
+    console.log('weekend')
+} else{
+    console.log(' not a valid date')
+}
