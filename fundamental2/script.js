@@ -171,3 +171,26 @@ for (let i = friendsYear.length -1; i >= 0; i--){
     console.log(friendsYear[i])
 }
 
+//nested loop
+for (let i = 1; i <4; i++){
+    console.log(`---starting exercise ${i}`)
+
+    for (let j=0; j <5; j++){
+        console.log(`rep ${j}`)
+    }
+}
+
+//CHALLENGE #4
+const steveBills = [22,295, 176, 440, 37, 105, 10, 1100, 86, 52]
+const steveTips = []
+const steveTotal = []
+
+
+for (let i = 0; i < steveBills.length; i++){
+    steveTips.push(calcTip(steveBills[i]))
+    steveTotal.push(steveBills[i]+ steveTips[i])
+}
+
+
+console.log(steveTips)
+console.log(steveTotal)
