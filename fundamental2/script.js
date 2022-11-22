@@ -163,3 +163,11 @@ if (markScore > johnScore){
     console.log('it was a draw!!!')
 }
 
+
+//looping array from the back
+const friendsYear = [1999, 1995, 1993, 1990]
+
+for (let i = friendsYear.length -1; i >= 0; i--){
+    console.log(friendsYear[i])
+}
+
