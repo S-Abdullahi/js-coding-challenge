@@ -100,3 +100,66 @@ console.log(tips)
 const total = [bills[0]+tips[0], bills[1]+tips[1], bills[2]+tips[2]]
 console.log(total.includes(555))
 console.log(total)
+
+//OBJECTS
+const abdullahi = {
+    'firstName': 'Abdullahi',
+    'lastName': 'Salawu',
+    'year': 1995,
+    'occupation': 'Software Engineer',
+    'location': 'Osun state',
+    'friends': ['lekan', 'qudus', 'olaitan'],
+    'hasDriversLicense': true,
+
+    calcAge: function(){
+        this.age = 2022 - this.year
+        return this.age
+    },
+
+    summary: function(){
+        if(this.hasDriversLicense){
+            return `${this.firstName} is a ${this.age}-yera old ${this.occupation}, and he has a driver's license`
+        } else{
+            return `${this.firstName} is a ${this.age}-yera old ${this.occupation}, and he has no driver's license`
+        }
+        
+    }
+}
+
+console.log(`${abdullahi.firstName} has ${abdullahi.friends.length}, and his best friend is call ${abdullahi.friends[0]}`)
+console.log(abdullahi.summary())
+
+//CHALLENGE #3
+const mark = {
+    'firstName': 'Mark',
+    'lastName': 'Miller',
+    'mass': 78,
+    'height': 1.69,
+
+    bmi: function(){
+        return this.mass/(this.height **2)
+    }
+}
+
+const john = {
+    'firstName': 'John',
+    'lastName': 'Smith',
+    'mass': 92,
+    'height': 1.95,
+
+    bmi: function(){
+        return this.mass/(this.height**2)
+    }
+}
+
+const markScore = mark.bmi()
+const johnScore = john.bmi()
+
+if (markScore > johnScore){
+    console.log(`${mark.firstName}'s BMI (${markScore}) is higher than ${john.firstName} (${johnScore})`)
+} else if (johnScore > markScore){
+    console.log(`${john.firstName}'s BMI (${johnScore}) is higher than ${john.firstName} (${markScore})`)
+} else{
+    console.log('it was a draw!!!')
+}
+
