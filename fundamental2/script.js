@@ -243,3 +243,22 @@ function calcTempAmplitude(temp){
 const temp = [3, -1, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5]
 const amplitude = calcTempAmplitude(temp)
 console.log(amplitude)
+
+function calcTempAmplitude2(temp1, temp2){
+    let temp = temp1.concat(temp2)
+
+    let max = temp[0]
+    let min = temp[0]
+
+    for (let i = 0; i < temp.length; i++){
+        if (typeof temp[i] !== 'number') continue;
+        if (max > temp[i]) max = temp[i]
+        if (min < temp[i]) min = temp[i]
+    }
+    return max -min 
+}
+
+const temp1 = [3, -5, 7, 9 , -2, 10, 33]
+const temp2 = [4, 6, 9, -3]
+const amplitude2 = calcTempAmplitude2(temp1, temp2)
+console.log(amplitude2)
