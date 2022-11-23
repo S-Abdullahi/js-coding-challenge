@@ -191,6 +191,17 @@ for (let i = 0; i < steveBills.length; i++){
     steveTotal.push(steveBills[i]+ steveTips[i])
 }
 
+const calcArrayAverage = function (arr){
+    let sum = 0
+    for(let i = 0; i < arr.length; i++){
+        sum += arr[i]
+    }
+    const average = sum/arr.length
+    return average
+}
 
-console.log(steveTips)
-console.log(steveTotal)
+console.log(calcArrayAverage(steveTotal))
+
+
+// console.log(steveTips)
+// console.log(steveTotal)
