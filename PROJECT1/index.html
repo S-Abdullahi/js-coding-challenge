@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <button class="again">Again!</button>
+        <span class="instruction">(Between 1 and 20)</span>
+    </header>
+    <main>
+        <h1 class="guess_instruction">Guess My Number!</h1>
+        <div class="guess_display">
+            <div class="horizontal">
+                <hr>
+            </div>
+            <span class="computer_guess">?</span>
+        </div>
+
+        <section>
+            <div class="left_section">
+                <input type="text" size='10' class="guess_input">
+                <button class="check_guess">Check!</button>
+            </div>
+            <div class="right_section">
+                <div class="start_guess">
+                    <span>Start Guessing...</span>
+                </div>
+                <div class="guess_result">
+                    <span>🥇 Score: <span class="guess_score"></span>10</span>
+                    <span>🏆 Highscore: <span class="highscore"></span>0</span>
+                </div>
+            </div>
+        </section>
+    </main>
+ <script src="script.js"></script>   
+</body>
+</html>
