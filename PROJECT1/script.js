@@ -6,9 +6,10 @@ const input = document.querySelector('.guess_input')
 const score = document.querySelector('.guess_score')
 let highscore = document.querySelector('.highscore')
 const body = document.querySelector('body')
+let guess_title = document.querySelector('.guess_instruction')
 
-highscore.textContent = 20
-
+score.textContent = 20
+let guess_score = 20
 
 check.addEventListener('click', ()=>{
     random = Math.floor(Math.random()*20) + 1
@@ -19,9 +20,23 @@ check.addEventListener('click', ()=>{
         body.style.backgroundColor = 'green'
     } else if( random > my_guess){
         guess_status.textContent = '👎 number too low!'
-        highscore.textContent = (highscore.textContent) -1
+        body.style.backgroundColor = 'black'
+        if(guess_score > 1){
+            guess_score--
+            score.textContent = guess_score
+        } else{
+            guess_status.textContent = '⌛ game over'
+            guess_title.textContent = 'game over!!!'
+        }
     } else{
         guess_status.textContent = '👎 number too high!'
-        highscore.textContent = (highscore.textContent) -1
+        body.style.backgroundColor = 'black'
+        if(guess_score > 1){
+            guess_score--
+            score.textContent = guess_score
+        }else{
+            guess_status.textContent = '⌛ game over'
+            guess_title.textContent = 'game over!!!'
+        }
     }
 })
