@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+
+:root{
+    --primary: #606c38;
+    --secondary: #283618;
+}
+
+
+body{
+    background-image: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin: 5rem 6rem;
+}
+
+.show-modal{
+    padding: 2rem 5rem;
+    border-radius: 5rem;
+    border: 0;
+    font-size: 1.5rem;
+}
+
+.modal{
+    background-color: white;
+    width: 50vw;
+    margin: 4rem auto;
+    position: relative;
+    padding: 4rem;
+    border-radius: 3px;
+}
+
+.close-modal{
+    position: absolute;
+    top: 3rem;
+    right: 4rem;
+    background-color: white;
+    border: 0;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+h1{
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+}
+
+p{
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+}
+

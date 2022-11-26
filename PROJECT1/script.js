@@ -50,7 +50,7 @@ check.addEventListener('click', ()=>{
 
 //RESERT GAME
 again.addEventListener('click', ()=>{
-    score.textContent = 20
+    guess_score = 20
     computer_guess.textContent = '?'
     guess_status.textContent = 'start guessing...'
     random = Math.floor(Math.random()*20) + 1
