@@ -10,6 +10,7 @@ let guess_title = document.querySelector('.guess_instruction')
 
 score.textContent = 20
 let guess_score = 20
+let topScore = 0
 //generate random number
 let random = Math.floor(Math.random()*20) + 1
 console.log(random)
@@ -27,6 +28,10 @@ check.addEventListener('click', ()=>{
         body.style.backgroundColor = 'green'
         computer_guess.textContent = random
         computer_guess.style.width = '18rem'
+        if (guess_score > topScore) {
+            topScore = guess_score
+            highscore.textContent = topScore
+        }
     } //when user guess is higher than the secret number 
     else if (random !== my_guess){
         if(guess_score > 1){

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -10,6 +11,7 @@
 }
 
 body{
+    font-family: 'Press Start 2P', sans-serif;
     color: var(--text-color);
     background-color: var(--color-2);
 }
@@ -19,8 +21,12 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 10vh;
 }
 
+main{
+    height: 90vh;
+}
 .again{
     padding: 1rem 2rem;
     font-weight: 500;
@@ -34,7 +40,8 @@ header{
 .guess_instruction{
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .guess_display{
@@ -57,7 +64,6 @@ hr{
 }
 
 .computer_guess{
-    /* padding: 3rem 4rem; */
     width: 15rem;
     height: 9rem;
     padding-top: 2rem;
@@ -85,17 +91,28 @@ section{
 }
 
 .guess_input{
-    height: 4rem;
-    background-color: var(--color-2);
+    background-color: none;
     border: solid 1px var(--text-color);
-    color: var(--text-color);
+    color: var(--color-2);
     text-align: center;
+    width: 20rem;
+    height: 8rem;
+    font-size: 5rem;
+    font-family: inherit;
+
 }
 
 .check_guess{
-    margin-top: 1rem;
     padding: 0.5rem;
     font-weight: 600;
+    height: 4rem;
+    width: 50%;
+    margin: 1rem auto;
+}
+
+.again:hover, .check_guess:hover{
+    background-color: rgb(95, 91, 91);
+    cursor: pointer;
 }
 
 .right_section{
@@ -110,5 +127,67 @@ section{
     flex-direction: column;
     font-size: 1.5rem;
     gap: 1rem;
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width:900px){
+    .instruction{
+        font-size: 75%;
+    }
+    .guess_instruction{
+        font-size: 1.5rem;
+    }
+    .computer_guess{
+        width: 10rem;
+        height: 7rem;
+    }
+
+    .guess_input{
+        height: 4rem;
+        font-size: inherit;
+        width: 10rem;
+    }
+
+    .guess_input:focus{
+        background-color: #222;
+        color: var(--text-color);
+    }
+
+    .guess_result, .guess_status, .start_guess{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:700px){
+    /* .instruction{
+        font-size: 75%;
+    }
+    .guess_instruction{
+        font-size: 1.5rem;
+    }
+    .computer_guess{
+        width: 10rem;
+        height: 7rem;
+    } */
+
+    section{
+        flex-direction: column;
+    }
+
+    .guess_input{
+        height: 4rem;
+        font-size: inherit;
+        width: 10rem;
+    }
+
+    .left_section{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 2rem;
+        margin-top: -3rem;
+        margin-bottom: 2rem;
+    }
+
 }
 
