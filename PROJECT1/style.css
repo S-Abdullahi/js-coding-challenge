@@ -57,10 +57,14 @@ hr{
 }
 
 .computer_guess{
-    padding: 3rem 4rem;
+    /* padding: 3rem 4rem; */
+    width: 15rem;
+    height: 9rem;
+    padding-top: 2rem;
+    text-align: center;
     background-color: var(--text-color);
     color: var(--color-2);
-    font-size: 3rem;
+    font-size: 4rem;
     display: absolute;
     margin: auto;
     position: absolute;
