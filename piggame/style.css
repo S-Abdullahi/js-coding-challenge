@@ -9,7 +9,7 @@
     --primary: #03045e;
     --secondary: #0077b6;
     --tertiary: #fff;
-    --unactive-player: #48cae4;
+    --inactive-player: #9cdae6ba;
     --active-player: #caf0f8;
 }
 
@@ -36,6 +36,8 @@ main{
     left: 50%;
     transform: translate(-50%, -50%); 
     box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
 }
 
 .player--contain{
@@ -55,6 +57,85 @@ main{
 }
 
 .player--1{
-    background-color: green;
+    background-color: var(--inactive-player);
     flex: 50%;
 }
+
+.name{
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.score{
+    margin-top: -15rem;
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.current{
+    background-image:linear-gradient(to bottom right, var(--secondary), var(--primary));
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+    color: var(--tertiary);
+    width: 40%;
+    height: 10rem;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+    padding-bottom: 1.2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.current-label{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.current-score{
+    font-size: 4rem;
+}
+
+.dice{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 17rem;
+    height: 5rem;
+    width: 5rem;
+}
+
+.btn--new, .btn--hold, .btn--roll{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 0;
+    padding: 1rem 1.5rem;
+    border-radius: 5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.btn--new{
+    top: 4rem;
+}
+
+.btn--roll{
+    bottom: 15rem;
+}
+
+.btn--hold{
+    bottom: 10rem;
+}
+
+
+/* MEDIA QUERY */
+@media  screen and (max-width:700px) {
+    main{
+        width: 100vw;
+        left: 0;
+        top: 0;
+        transform: translate(50%,50%);    }
+}
+
