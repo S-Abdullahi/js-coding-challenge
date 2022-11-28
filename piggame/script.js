@@ -2,15 +2,20 @@ const newgame = document.querySelector('.btn--new')
 const rollgame = document.querySelector('.btn--roll')
 const holdgame = document.querySelector('.btn--hold')
 
+const player1 = document.querySelector('.player--0')
+const player2 = document.querySelector('.player--1')
 const player0score = document.querySelector('#score--0')
 const player1score = document.querySelector('#score--1')
-const current1score = document.querySelector('#current--1')
-const current2score = document.querySelector('#current--2')
+const current1score = document.querySelector('#current--0')
+const current2score = document.querySelector('#current--1')
+const winnerText = document.querySelector('.winner--text')
 const dice = document.querySelector('.dice')
 
+//initial conditions
 let currentScore = 0
 let active = 0
 let score = [0,0]
+let playing = true
 player0score.textContent = 0
 player1score.textContent = 0
 
@@ -21,30 +26,45 @@ function playGame(){
     currentScore = 0
 }
 
+//for switching the background color of the active player
+function swtichBg(){
+    player1.classList.toggle("player--active")
+    player2.classList.toggle("player--active")     
+}
+
 //roll dice : each number rolled will be added to the current score
 rollgame.addEventListener('click', ()=>{
-    diceRoll = Math.floor(Math.random()*6) + 1
-    dice.classList.remove('hidden')
-    dice.src = `dice-${diceRoll}.png`
+    if(playing){
+    diceRoll = Math.floor(Math.random()*6) + 1 //generate a random number
+    dice.classList.remove('hidden') //show dice on screen
+    dice.src = `dice-${diceRoll}.png` //change dice with random number
     if (diceRoll !== 1){
         currentScore += diceRoll
         document.getElementById(`current--${active}`).textContent = currentScore
     } else{
         playGame()
+        swtichBg()
+    }
     }
 })
 
 
 //hold game : player current score is added to the main score
 holdgame.addEventListener('click', ()=>{
+    if(playing){
         score[active] += currentScore
-        if(score[active] >= 100){
+        //winning condition
+        if(score[active] >= 20){
+            playing = false
             document.getElementById(`score--${active}`).textContent = score[active]
-            console.log(`player ${active + 1} won`)
+            winnerText.textContent = `player ${active + 1} won 🏆🥇🍾`
         } else{
             playGame()
+            player1.classList.toggle("player--active")
+            player2.classList.toggle("player--active")
         }
         dice.classList.add('hidden')
+    }
 })
 
 //this reset the game
@@ -57,4 +77,5 @@ newgame.addEventListener('click',()=>{
     player1score.textContent = 0
     current1score.textContent = 0
     current2score.textContent = 0
+    winnerText.textContent = ''
 })
