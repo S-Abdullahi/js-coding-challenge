@@ -1,6 +1,7 @@
 const newgame = document.querySelector('.btn--new')
 const rollgame = document.querySelector('.btn--roll')
 const holdgame = document.querySelector('.btn--hold')
+const startGame = document.querySelector('.continue')
 
 const player1 = document.querySelector('.player--0')
 const player2 = document.querySelector('.player--1')
@@ -31,6 +32,11 @@ function swtichBg(){
     player1.classList.toggle("player--active")
     player2.classList.toggle("player--active")     
 }
+
+//start game
+startGame.addEventListener('click', ()=>{
+    document.querySelector('.instruction').classList.add('hidden')
+})
 
 //roll dice : each number rolled will be added to the current score
 rollgame.addEventListener('click', ()=>{

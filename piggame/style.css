@@ -191,7 +191,11 @@ main {
     border: 0;
     padding: 1rem;
     border-radius: 3px;
-    background-color: var(--primary);
+    background-image: linear-gradient(
+        to bottom right,
+        var(--secondary),
+        var(--primary)
+      );
     color: var(--tertiary);
     letter-spacing: 1.5px;
     margin-top: 2rem;
