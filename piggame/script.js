@@ -54,7 +54,7 @@ holdgame.addEventListener('click', ()=>{
     if(playing){
         score[active] += currentScore
         //winning condition
-        if(score[active] >= 20){
+        if(score[active] >= 100){
             playing = false
             document.getElementById(`score--${active}`).textContent = score[active]
             winnerText.textContent = `player ${active + 1} won 🏆🥇🍾`
