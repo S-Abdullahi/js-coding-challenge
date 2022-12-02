@@ -64,4 +64,6 @@ console.log(restaurant.orderPasta(...restaurant.mainMenu))
 
 const month = ['january','febuary','march','april','may']
 console.log(...month)
-const monthArray = [...month]
+const [m1, m2, ...others] = month
+console.log(others)
+console.log(m1)
