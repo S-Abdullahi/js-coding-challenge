@@ -35,6 +35,10 @@ const restaurant = {
         close: 24,
       },
     },
+
+    orderPasta : function (ing1, ing2, ing3){
+        console.log(`here is your delicious paste with ${ing1}, ${ing2} and ${ing3}`)
+    }
   };
 
 const [meal1, ,meal2] = restaurant.mainMenu
@@ -55,3 +59,9 @@ const name = 'abdullahi'
 const nameArr = [...name]
 console.log(nameArr)
 console.log(...name)
+
+console.log(restaurant.orderPasta(...restaurant.mainMenu))
+
+const month = ['january','febuary','march','april','may']
+console.log(...month)
+const monthArray = [...month]
