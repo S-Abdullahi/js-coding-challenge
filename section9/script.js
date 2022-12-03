@@ -166,3 +166,50 @@ console.log(draw)
 console.log(game.scored)
 const pg = printGoals(...game.scored)
 console.log(pg)
+
+
+//for-of loop
+for (const [i,player] of player1.entries()){
+    console.log(`${i+1}: ${player}`)
+}
+
+//optional chaining
+const days = ['mon','tue', 'wed','thu','fri','sat','sun']
+
+for (const day of days){
+    const open = restaurant.openingHours[day]?.open ?? 'closed'
+    console.log(`we are open on ${day} at ${open}`)
+}
+
+const user = [{name: 'abdullahi', age: 27}]
+console.log(user[1]?.name ?? 'user does not exist')
+
+//coding challenge #2
+//task 1
+for (const [key, value] of game.scored.entries()){
+    console.log(`goal ${key + 1}: ${value}`)
+}
+
+//task 2
+let oddValue = 0
+const odds = Object.values(game.odds)
+for (const odd of odds){
+    oddValue += odd
+}
+const oddAverage = oddValue/ odds.length
+console.log(oddAverage)
+//task 3
+for (const [team, odd] of Object.entries(game.odds)){
+    const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`
+    console.log(`Odd of ${teamStr}: ${odd}`)
+}
+
+//bonus challenge
+const scorers = {}
+const scorerArray = Object.entries(game.scored)
+for (const [i,scorer] of scorerArray){
+    console.log([i,scorer])
+    scorers[scorer] ? scorers[scorer] += 1 : scorers[scorer]=1
+    // scorers[scorer] = scorerArray.count(scorer)
+}
+console.log(scorers)
