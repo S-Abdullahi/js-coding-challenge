@@ -208,8 +208,48 @@ for (const [team, odd] of Object.entries(game.odds)){
 const scorers = {}
 const scorerArray = Object.entries(game.scored)
 for (const [i,scorer] of scorerArray){
-    console.log([i,scorer])
     scorers[scorer] ? scorers[scorer] += 1 : scorers[scorer]=1
     // scorers[scorer] = scorerArray.count(scorer)
 }
 console.log(scorers)
+
+//SET
+const roles = new Set(['associate','mid level','senior', 'associate', 'junior', 'senior'])
+console.log(roles.has('senior'))
+console.log(roles)
+
+//MAP
+const questions = new Map([
+    ['question', 'what is the best  programming language in the world?'],
+    [1, 'C'],
+    [2, 'Java'],
+    [3, 'JavaScript'],
+    ['correct', 3],
+    [true, 'Correct'],
+    [false, 'try again!']]
+)
+console.log(questions.get('question'))
+for (const [key, value] of questions){
+    if (typeof key === 'number'){
+        console.log(`answer ${key}: ${value}`)
+    }
+}
+// // const answer = Number(prompt('enter your answer'))
+// const quizAnswer = answer === questions.get('correct') ? questions.get(true) : questions.get(false)
+// console.log(`THE ANSWER IS ${quizAnswer}`)
+// console.log(questions.get(answer === questions.get('correct')))
+// console.log(answer)
+// console.log(questions)
+
+//STRINGS
+const myName = 'Salawu Abdullahi Olalekan'
+function middleSeat(seat){
+    const ms = seat.slice(-1)
+    if (ms==='B' || ms==='E'){
+        console.log('you got the middle seat')
+    } else{
+        console.log('you are lucky')
+    }
+}
+
+middleSeat('12')
