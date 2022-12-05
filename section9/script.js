@@ -253,3 +253,34 @@ function middleSeat(seat){
 }
 
 middleSeat('12')
+
+
+
+//coding challenge #3
+const gameEvents = new Map([
+    [17, '⚽ GOAL'],
+    [36, '🔁 Substitution'],
+    [47, '⚽ GOAL'],
+    [61, '🔁 Substitution'],
+    [64, '🔶 Yellow card'],
+    [69, '🔴 Red card'],
+    [70, '🔁 Substitution'],
+    [72, '🔁 Substitution'],
+    [76, '⚽ GOAL'],
+    [80, '⚽ GOAL'],
+    [92, '🔶 Yellow card'],
+    ]);
+//#1
+// const eventsSet = new Set(gameEvents)
+// const eventArray = [...eventsSet]
+// console.log(eventsSet)
+// console.log(eventArray)
+// gameEvents.delete(64)
+console.log(gameEvents)
+const timeDiff = (90/gameEvents.size)
+console.log(`An event happened, on average, every ${timeDiff} minutes`)
+console.log(gameEvents.size)
+
+for (const [event, value] of gameEvents){
+    event < 45 ? console.log(`[FIRST HALF] ${event} : ${value}`) : console.log(`[SECOND HALF] ${event} :${value} `)
+}
