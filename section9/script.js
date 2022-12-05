@@ -284,3 +284,28 @@ console.log(gameEvents.size)
 for (const [event, value] of gameEvents){
     event < 45 ? console.log(`[FIRST HALF] ${event} : ${value}`) : console.log(`[SECOND HALF] ${event} :${value} `)
 }
+
+//STRINGS
+const email = 'salawu@gmail.com'
+const comEmail = ' Salawu@gmaiL.com '
+const correctEmail = comEmail.toLowerCase().trim()
+console.log(comEmail)
+console.log(email===correctEmail)
+
+const message = 'we are going to home'
+console.log(message.replace('home', 'market'))
+
+const cardMasking = function (card){
+    const cardNumber = String(card)
+    const last = cardNumber.slice(-4)
+    console.log(last.padStart(cardNumber.length, '*'))
+}
+
+cardMasking(999900938)
+
+const names = ['salawu','abdullahi','olalekan']
+const correctName = []
+for (const name of names){
+    correctName.push(name.replace(name[0],name[0].toUpperCase()))
+}
+console.log(correctName.join(' '))
