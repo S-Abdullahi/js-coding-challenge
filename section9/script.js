@@ -309,3 +309,37 @@ for (const name of names){
     correctName.push(name.replace(name[0],name[0].toUpperCase()))
 }
 console.log(correctName.join(' '))
+
+
+//coding challange 4
+document.body.append(document.createElement('textarea'))
+document.body.append(document.createElement('button'))
+
+
+const splittedText = []
+const upperText = []
+let mark = 0
+document.querySelector('button').addEventListener('click',()=>{
+    const textareaValue = document.querySelector('textarea').value
+    const textSplit = textareaValue.split('\n')
+    for (const word of textSplit) {
+        splittedText.push(word.split('_'))
+    }
+    for (const [first, second] of splittedText) {
+        const secondUpper = second[0].replace(second[0],second[0].toUpperCase()) + second.slice(1)
+        upperText.push([first,secondUpper].join(''))   
+    }
+    console.log(splittedText)
+    for (const item of upperText){
+        mark++
+        console.log(`${item.padEnd(20)}${'✅'.repeat(mark)}`)
+    }
+})
+
+function convertString(text){
+    const convertedText = text.split('_')
+    convertedText[1] = convertedText[1][0].toUpperCase() + convertedText[1].slice(1)
+    console.log(convertedText.join(''))
+}
+
+convertString('salawu_abdullahi')
