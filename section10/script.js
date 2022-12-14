@@ -67,5 +67,38 @@ const swiss = {
 luthanza.book(245, 'Salawu Abdullahi')
 console.log(luthanza)
 
+//call method
 const book = luthanza.book
 book.call(swiss, 444, 'Bankole Hameedah')
+
+//bind method
+const bookSW = book.bind(swiss)
+const bookLH = book.bind(luthanza)
+bookSW(34, 'olalekan')
+bookLH(89, 'ABDULLAHI')
+
+luthanza.planes = 200
+luthanza.buyplanes = function (){
+    console.log(this)
+
+    this.planes++
+    console.log(this.planes)
+}
+
+document.querySelector('.buy').addEventListener('click',luthanza.buyplanes.bind(luthanza))
+
+const addTax = (rate,value) => value + value * rate
+console.log(addTax(0.2,200))
+
+const addVAT = addTax.bind(null,0.2)
+console.log(addVAT(200))
+
+//higher order function example
+function addTaxHO(rate){
+    return function(value){
+        const amount = value + value * rate
+        console.log(amount)
+    }
+}
+
+addTaxHO(0.5)(500)
