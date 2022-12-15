@@ -126,3 +126,15 @@ const poll = {
 
 document.querySelector('.poll').addEventListener('click',poll.registerNewAnswer.bind(poll))
 
+//array method
+const arr = ['a', 'b', 'c', 'd', 'e', 'f']
+console.log(arr.slice(2))
+console.log(arr)
+// console.log(arr.splice(2,3))
+console.log(arr.reverse())
+
+arr.forEach(function(value, key, array){
+    console.log(value)
+})
+
+//roy lagbaja
