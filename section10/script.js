@@ -156,3 +156,28 @@ const juliaData =[3,5,2,12,7]
 const kateData = [4,1,15,8,3]
 
 checkDogs(juliaData,kateData)
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+
+const eurToUSD = 1.1
+
+const convertMovements = movements.map((mov)=>mov*eurToUSD)
+console.log(convertMovements)
+
+const deposit = movements.filter((mov)=>mov>0)
+const withdraw = movements.filter(mov=>mov<0)
+console.log(deposit)
+console.log(withdraw)
+
+//reducer
+const balance = movements.reduce((acc,cur)=>acc+cur,0)
+console.log(balance)
+const max = movements.reduce((acc,cur)=>{
+    if(acc > cur){
+        return acc
+    }else{
+        return cur
+    }
+},movements[0])
+console.log(max)
