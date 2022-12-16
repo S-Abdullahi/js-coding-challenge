@@ -137,4 +137,22 @@ arr.forEach(function(value, key, array){
     console.log(value)
 })
 
-//roy lagbaja
+//Working with Arrays
+//coding challenge #1
+
+const checkDogs = function(dogsJulia, dogsKate){
+    const dogJuliaCP = [...dogsJulia]
+    dogJuliaCP.splice(0,1)
+    dogJuliaCP.splice(-2,2)
+    const correctData = [...dogJuliaCP, ...dogsKate]
+    correctData.forEach((value, index)=>{
+        value >= 3 ? console.log(`Dog number ${index +1} is an adult, and is ${value} years old`) : console.log(`Dog number ${index +1} is still a puppy 🐶`)
+    })
+    console.log(dogJuliaCP)
+    console.log(correctData)
+}
+
+const juliaData =[3,5,2,12,7]
+const kateData = [4,1,15,8,3]
+
+checkDogs(juliaData,kateData)
