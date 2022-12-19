@@ -181,3 +181,81 @@ const max = movements.reduce((acc,cur)=>{
     }
 },movements[0])
 console.log(max)
+
+//coding challaneg 2
+const calcAverageHumanAge = function(dogArray){
+    const dogHumanAge = dogArray.map((dogAge)=>dogAge <=2 ? 2 * dogAge : 16 + dogAge * 4)
+    //exclude all dogs less than 18 human years old
+    const adultDogs = dogHumanAge.filter((humanAge)=>humanAge >=18)
+
+    //calculate the human age of all adult age
+    const averageAdultDog = adultDogs.reduce((acc, age)=>acc+age,0)/adultDogs.length
+    console.log(dogHumanAge)
+    console.log(adultDogs)
+    
+    return averageAdultDog
+}
+
+console.log(calcAverageHumanAge([5,2,4,1,15,8,3]))
+calcAverageHumanAge([16,6,10,5,6,1,4])
+
+//coding challange 3
+const calcAverageHumanAgeCH = function(dogArray){
+    const average = dogArray.map((age)=> age <= 2 ? 2*age : 16 +age*4).filter((adult)=>adult>=18)
+    return average.reduce((acc,cur)=>acc+cur,0)/average.length
+    
+}
+
+const calVHCH = calcAverageHumanAgeCH([5,2,4,1,15,8,3])
+console.log(calVHCH)
+
+
+const diceRole = Array.from({length:100}, ()=>Math.floor(Math.random()*6) +1)
+console.log(diceRole)
+
+
+//coding challenge 4
+const dogs = [
+    { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+    { weight: 8, curFood: 200, owners: ['Matilda'] },
+    { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+    { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+//task 1
+
+dogs.forEach((item)=>{
+    item.foodPortion = item.weight**0.75*28
+})
+
+//task 2: Find Sarah's dog and log to the console whether it's eating too much or too little.
+const sarah = dogs.find((item)=>item['owners'].includes('Sarah'))
+console.log(`the dog is eating ${sarah.curFood > sarah.foodPortion ? 'too much' : 'too little'}`)
+console.log(sarah)
+console.log(dogs)
+
+//task 3: Create an array containing all owners of dogs who eat too much ('ownersEatTooMuch') and an array with all owners of dogs who eat too littl ('ownersEatTooLittle').
+const ownersEatTooMuch = dogs.slice().filter((item)=> item.curFood > item.foodPortion).map((item)=>item.owners).flat()
+
+const ownersEatTooLittle = dogs.slice().filter((item)=>item.curFood < item.foodPortion).map((item)=>item.owners).flat()
+console.log(ownersEatTooMuch)
+console.log(ownersEatTooLittle)
+
+//task 4
+console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too little`)
+console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much`)
+
+//task 5
+dogs.forEach((item)=> console.log(item.curFood === item.foodPortion))
+
+//task 6
+dogs.forEach((item)=> console.log(item.curFood > item.foodPortion * 0.9 && item.curFood < item.foodPortion * 1.10))
+
+//task 7
+const okayDogs = dogs.slice().filter((item)=> item.curFood > item.foodPortion * 0.9 && item.curFood < item.foodPortion * 1.10)
+
+console.log(okayDogs)
+
+//task 8
+const dogSort = dogs.slice().map((item)=>item.foodPortion).sort((a,b)=> a-b)
+console.log(dogSort)
