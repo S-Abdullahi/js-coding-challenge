@@ -241,21 +241,30 @@ const ownersEatTooLittle = dogs.slice().filter((item)=>item.curFood < item.foodP
 console.log(ownersEatTooMuch)
 console.log(ownersEatTooLittle)
 
-//task 4
+//task 4: Log a string to the console for each array created in 3., like this: "Matilda and Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat too little!"
 console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too little`)
 console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much`)
 
-//task 5
-dogs.forEach((item)=> console.log(item.curFood === item.foodPortion))
+//task 5 : Log to the console whether there is any dog eating exactly the amount of food that is recommended (just true or false)
+dogs.some((item)=>item.curFood === item.foodPortion)
 
-//task 6
-dogs.forEach((item)=> console.log(item.curFood > item.foodPortion * 0.9 && item.curFood < item.foodPortion * 1.10))
+//task 6 : Log to the console whether there is any dog eating an okay amount of food (just true or false)
+dogs.some((item)=> item.curFood > item.foodPortion * 0.9 && item.curFood < item.foodPortion * 1.10)
 
-//task 7
+//task 7 : Create an array containing the dogs that are eating an okay amount of food (try to reuse the condition used in 6.)
 const okayDogs = dogs.slice().filter((item)=> item.curFood > item.foodPortion * 0.9 && item.curFood < item.foodPortion * 1.10)
 
 console.log(okayDogs)
 
-//task 8
-const dogSort = dogs.slice().map((item)=>item.foodPortion).sort((a,b)=> a-b)
+//task 8 : Create a shallow copy of the 'dogs' array and sort it by recommended food portion in an ascending order(keep in mind that the portions are inside the array's objects 😉)
+const dogSort = dogs.slice().sort((a,b)=> a.foodPortion-b.foodPortion)
 console.log(dogSort)
+
+const datePractice = new Date(2023, 10, 5)
+console.log(datePractice)
+console.log(datePractice.getFullYear())
+console.log(datePractice.getMonth())
+console.log(datePractice.getDate())
+console.log(datePractice.getDay())
+console.log(datePractice.toISOString())
+console.log(datePractice.getTime())
