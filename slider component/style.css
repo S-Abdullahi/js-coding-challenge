@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+
+}
+.image-con{
+    position: relative;
+    transition: all 0.3s;
+    background-color: red;
+    height: 80vh;
+    width: 70vw;
+    overflow: hidden;
+    margin: 2rem auto;
+}
+
+img{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    transition: all  ease-in-out 0.5s;
+}
+
+button{
+    position: absolute;
+    top: 20rem;
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: white;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;    
+}
+
+.btn-left{
+    left: 20%;
+}
+
+.btn-right{
+    right: 20%;
+}
