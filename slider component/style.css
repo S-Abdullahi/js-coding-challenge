@@ -11,7 +11,6 @@ body{
 .image-con{
     position: relative;
     transition: all 0.3s;
-    background-color: red;
     height: 80vh;
     width: 70vw;
     overflow: hidden;
@@ -42,4 +41,21 @@ button{
 
 .btn-right{
     right: 20%;
+}
+
+.dots-con{
+    display: flex;
+    justify-content: center;
+}
+
+.dot{
+    height: 1rem;
+    width: 1rem;
+    background-color: rgb(231, 220, 220);
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+.dot-active{
+    background-color: gray;
 }
