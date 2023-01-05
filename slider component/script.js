@@ -76,6 +76,6 @@ dotContainer.addEventListener('click',(e)=>{
 
 //keyboard arrow to slide
 document.addEventListener('keydown',(e)=>{
-    e.key=='ArrowRight' && nextSlide()
+    e.key == 'ArrowRight' && nextSlide()
     e.key == 'ArrowLeft' && previousSlide()
 })

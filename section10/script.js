@@ -268,3 +268,16 @@ console.log(datePractice.getDate())
 console.log(datePractice.getDay())
 console.log(datePractice.toISOString())
 console.log(datePractice.getTime())
+
+console.log('waiting...')
+setTimeout(()=>console.log('learning JavaScript'),2000)
+setInterval(()=>{
+    const date = new Date()
+    const option = {
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+    }
+    const clock = new Intl.DateTimeFormat(navigator.language,option).format(date)
+    // console.log(clock)
+},1000)
