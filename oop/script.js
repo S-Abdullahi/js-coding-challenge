@@ -30,13 +30,13 @@ class Car {
     }
 
     accelerate(){
-        let newSpeed = this.speed + 10
-        console.log(`this new speed of the car ${this.make} is ${newSpeed} km/hr`)
+        this.speed += 10
+        console.log(`this new speed of the car ${this.make} is ${this.speed} km/hr`)
     }
 
     brake(){
-        let newSpeed = this.speed - 5
-        console.log(`this new speed of the car is ${newSpeed} km/hr`)
+        this.speed -= 5
+        console.log(`this new speed of the car is ${this.speed} km/hr`)
     }
 }
 
@@ -48,3 +48,39 @@ car1.brake()
 
 car2.accelerate()
 car2.brake()
+
+//coding challenge two
+class CarCl {
+    constructor(make, speed){
+        this.make = make
+        this.speed = speed
+    }
+
+    accelerate(){
+        this.speed += 10
+        console.log(`this new speed of the car ${this.make} is ${this.speed} km/hr`)
+    }
+
+    brake(){
+        this.speed -= 5
+        console.log(`this new speed of the car is ${this.speed} km/hr`)
+    }
+
+    get speedUS(){
+        let speedMl = this.speed/1.6
+        return speedMl
+    }
+
+    set speedUS(speed){
+        this.speed = speed * 1.6
+    }
+}
+
+const bmw = new CarCl('bwm', 120)
+bmw.accelerate()
+bmw.accelerate()
+console.log(bmw.speedUS)
+bmw.speedUS = 50
+console.log(bmw)
+console.log(bmw.speedUS)
+
