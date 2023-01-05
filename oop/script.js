@@ -84,3 +84,64 @@ bmw.speedUS = 50
 console.log(bmw)
 console.log(bmw.speedUS)
 
+const Persons = function(firstname, birthYear){
+    this.firstname = firstname
+    this.birthYear = birthYear
+}
+
+Persons.prototype.Calcage = function(){
+    console.log(2023 - this.birthYear)
+}
+
+const Student = function(firstname, birthYear, course) {
+    Persons.call(this, firstname, birthYear)
+    this.course = course
+}
+
+Student.prototype = Object.create(Persons.prototype)
+
+Student.prototype.introduce = function(){
+    console.log(`my name is ${this.firstname}, I am studing ${this.course}`)
+}
+
+const mike = new Student('Mike', 2000, 'Mechanical Engineering')
+
+mike.introduce()
+mike.Calcage()
+
+//coding challenge 3
+const CarOC = function (make, speed){
+    this.make = make,
+    this.speed = speed
+}
+
+CarOC.prototype.accelerate = function(){
+    this.speed += 10
+    console.log(`this new speed of the car ${this.make} is ${this.speed}`)
+}
+
+CarOC.prototype.brake = function(){
+    this.speed -= 5
+    console.log(`this new speed of the car is ${this.speed}`)
+}
+
+const EV = function (make, speed, charge){
+    CarOC.call(this, make, speed)
+    this.charge = charge
+}
+
+EV.prototype = Object.create(CarOC.prototype)
+
+EV.prototype.chargeBattery = function(chargeTo){
+    this.charge = chargeTo
+}
+
+EV.prototype.accelerate = function(){
+    this.speed += 20
+    this.charge -= 1
+    console.log(`${this.make} going at ${this.speed} km/h with a charge of ${this.charge} %`)
+}
+
+const tesla = new EV('Tesla', 120, 23)
+tesla.accelerate()
+tesla.brake()
