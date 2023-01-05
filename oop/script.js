@@ -145,3 +145,36 @@ EV.prototype.accelerate = function(){
 const tesla = new EV('Tesla', 120, 23)
 tesla.accelerate()
 tesla.brake()
+
+class Students extends Person{
+    constructor(firstname, lastname, birthYear, course){
+        super(firstname, lastname,birthYear)
+        this.course = course
+    }
+}
+
+const olalekan = new Students('salawu', 'olalekan', 1995)
+olalekan.detail()
+
+//coding challenge 4
+class EVCL extends CarCl{
+    constructor(make, speed, charge){
+        super(make, speed)
+        this._charge = charge
+    }
+
+    chargeBattery(chargeTo){
+        this._charge = chargeTo
+        return this
+    }
+
+    accelerate(){
+        this.speed += 20
+        this._charge--
+        console.log(`${this.make} going at ${this.speed} km/h with a charge of ${this._charge} %`)
+        return this
+    }
+}
+
+const rivian = new EVCL('rivian',120, 23)
+rivian.accelerate().chargeBattery(30).brake()
