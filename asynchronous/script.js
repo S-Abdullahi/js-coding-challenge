@@ -30,17 +30,74 @@ function renderCountry(data, neighbour=''){
 
 }
 
-function getCountry(country){
-    const request = fetch(`https://restcountries.com/v3.1/name/${country}`)
-    
-    request.then(response=>response.json())
-            .then(data=>{
-                renderCountry(data[0])
-                console.log(data)
 
-                return fetch(`https://restcountries.com/v3.1/alpha/${data[0].borders[0]}`)
-            }).then(response => response.json())
-            .then(data=> renderCountry(data[0],'neighbor'))
-                
+function renderError(message){
+    body.insertAdjacentHTML('beforeend',message)
 }
-getCountry('belgium')
+
+function getData(url, errorMessage){
+    return fetch(url).then(response =>{
+        if(!response.ok) throw new Error(`${errorMessage} ${response.status}`)
+        return response.json()
+    })
+
+}
+
+
+// function getCountry(country){
+//     getData(`https://restcountries.com/v3.1/name/${country}`, `Country not found`)
+//     // const request = fetch(`https://restcountries.com/v3.1/name/${country}`)
+    
+//     // request.then(response=>{
+//     //     if(!response.ok) throw new Error(`Country not found - ${response.status}`)
+//     //     return response.json()
+//     // })
+//     .then(data=>{
+//         renderCountry(data[0])
+
+//         getData(`https://restcountries.com/v3.1/alpha/${data[0].borders[0]}`,'No neighbour found')
+//         // return fetch(`https://restcountries.com/v3.1/alpha/${data[0].borders[0]}`)
+//         //     }).then(response =>{
+//         //         console.log(response)
+//         //         if(!response.ok) throw new Error(`No neighbor found ${response.status}`)
+//         //         return response.json()
+//             })
+//             .then(data=> renderCountry(data[0],'neighbor'))
+//             .catch(error =>{
+//                 renderError(`OOPPPSSS!!! something went wrong: ${error.message} `)
+//             })
+                
+// }
+// getCountry('belgium')
+
+
+//asynchronous challenge one
+function getJSON(url, errorMessage){
+   return fetch(url).then(response =>{
+    console.log(response)
+    if(!response.ok) throw new Error(`${errorMessage}: ${response.status}`)
+    return response.json()
+   })
+}
+
+function whereAmI(lng, lat){
+    //https://geocode.xyz/51.50354,-0.12768?geoit=xml auth=your_api_key
+    getJSON(`https://geocode.xyz/${lng},${lat}?geoit=json&auth=622255700551578397x91426`)
+    .then(data => {
+        console.log(data)
+        console.log(`you are in ${data.city}, ${data.prov}`)
+
+        return fetch(`https://restcountries.com/v3.1/name/nigeria`)
+    }).then(response =>{
+        console.log(response)
+        if(!response.ok) throw new Error('country not found')
+        return response.json()
+    } )
+    .then(data=> {
+        renderCountry(data[0])
+    }
+        )
+    .catch(error => console.error(`Something went wrong ${error.message}`))
+}
+
+whereAmI(8.2, 3.9)
