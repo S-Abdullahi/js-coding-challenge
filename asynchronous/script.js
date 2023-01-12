@@ -101,3 +101,50 @@ function whereAmI(lng, lat){
 }
 
 whereAmI(8.2, 3.9)
+
+
+//promise
+const lottery = new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        if(Math.random()*10 > 5){
+            resolve('I won')
+        } else{
+            reject('you lose')
+        }
+    },2000)
+   
+})
+
+lottery.then((res)=>{
+    console.log(res)
+}).catch(error=>console.log(error))
+
+const wait = function(seconds){
+    return new Promise((resolve)=>{
+        setTimeout(resolve, seconds)
+    })
+}
+
+wait(2).then(()=>{
+    console.log('I waited for 2 seconds')
+    return wait(1)
+}).then(()=>{
+    console.log('I waited for 2 seconds')
+})
+
+
+const getLocation = function(){
+    return new Promise((resolve, reject) =>{
+    navigator.geolocation.getCurrentPosition((position)=>{
+        resolve(position)
+    },(error)=>{
+        reject(error)
+    })
+})
+}
+
+getLocation().then(res=>{
+    const {latitude, longitude} = res.coords
+    console.log(latitude, longitude)
+})
+
