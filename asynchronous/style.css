@@ -55,3 +55,9 @@ body{
     transform: scale(0.7);
 }
 
+
+.images{
+    height: 5rem;
+    width: 5rem;
+}
+

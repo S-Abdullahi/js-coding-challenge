@@ -148,3 +148,41 @@ getLocation().then(res=>{
     console.log(latitude, longitude)
 })
 
+//coding challenge 2
+const imageWait = function(seconds){
+    return new Promise((resolve)=>{
+        setTimeout(resolve, seconds*1000)
+    })
+}
+const imageCon = document.querySelector('.image-con')
+function createImage(imgPath){
+    return new Promise((resolve, reject)=>{
+        const img = document.createElement('img')
+        img.src = imgPath
+        img.addEventListener('load',()=>{
+            imageCon.append(img)
+            resolve(img)
+        })
+
+        img.addEventListener('error',()=>{
+            reject(new Error('image not found'))
+        })
+
+    })
+}
+
+let currentImage
+createImage('img/img-1.jpg').then(res =>{
+    currentImage = res
+    console.log(res)
+    return imageWait(3 )
+}).then((()=>{
+    currentImage.style.display = 'none'
+    return createImage('img/img-2.jpg')
+})).then((res)=>{
+    currentImage = res
+    return imageWait(3)
+}).then(()=>{
+    currentImage.style.display ='none'
+    return createImage('img/img-3.jpg')
+}).catch(err=>console.error(err))
