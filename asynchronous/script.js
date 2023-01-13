@@ -172,17 +172,70 @@ function createImage(imgPath){
 }
 
 let currentImage
-createImage('img/img-1.jpg').then(res =>{
-    currentImage = res
-    console.log(res)
-    return imageWait(3 )
-}).then((()=>{
-    currentImage.style.display = 'none'
-    return createImage('img/img-2.jpg')
-})).then((res)=>{
-    currentImage = res
-    return imageWait(3)
-}).then(()=>{
-    currentImage.style.display ='none'
-    return createImage('img/img-3.jpg')
-}).catch(err=>console.error(err))
+// createImage('img/img-1.jpg').then(res =>{
+//     currentImage = res
+//     console.log(res)
+//     return imageWait(3 )
+// }).then((()=>{
+//     currentImage.style.display = 'none'
+//     return createImage('img/img-2.jpg')
+// })).then((res)=>{
+//     currentImage = res
+//     return imageWait(3)
+// }).then(()=>{
+//     currentImage.style.display ='none'
+//     return createImage('img/img-3.jpg')
+// }).catch(err=>console.error(err))
+
+const asyncCreateImage = async function(){
+    const res = await fetch(`https://restcountries.com/v3.1/name/portugal`)
+    const data = await res.json()
+    console.log(data)
+
+}
+asyncCreateImage()
+
+
+const dictionary = async function(word){
+    try{
+        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+        if(!response.ok) throw new Error('word not found')
+        const data = await response.json()
+        console.log(data[0].meanings)
+    } catch(error){
+        console.error(error.message)
+    }
+    
+}
+dictionary('engineer')
+
+//coding challenge 3 part 1
+// const loadNPurse = async function(){
+//     try{
+//         Image = await createImage('img/img-1.jpg')
+//         await imageWait(3)
+
+//         Image.style.display = 'none'
+//         Image = await createImage('img/img-2.jpg')
+//         await imageWait(3)
+
+//         Image.style.display = 'none'
+//         Image = await createImage('img/img-3.jpg')
+//     }
+//     catch(err){
+//         console.error(err.message)
+//     }
+// }
+
+
+//coding challenge 3 part 2
+const loadAll = async function(imgArr){
+    const images = imgArr.map(async img=>
+        await createImage(img)
+    )
+    const imageEL = await Promise.all(images)
+    console.log(imageEL)
+    imageEL.forEach(img=>img.classList.add('parallel'))
+}
+
+loadAll(['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg'])
