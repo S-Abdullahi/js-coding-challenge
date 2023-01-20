@@ -9,7 +9,7 @@ const wordResult = document.querySelector('.word-result')
 class WordCount{
     #resultArray
     constructor(){
-        // this._getLocalStorage()
+        this._getLocalStorage()
         submit.addEventListener('click', this._calculateWords.bind(this))
         
     }
@@ -31,13 +31,14 @@ class WordCount{
 
     _setLocalStorage(){
         localStorage.setItem('result', JSON.stringify(this.#resultArray))
+        localStorage.setItem('texts', JSON.stringify(text.value))
     }
 
     _getLocalStorage(){
         const data = JSON.parse(localStorage.getItem('result'))
         console.log(data)
-        this._displayResult(data[0],data[1])
-        text.value = data[2]
+        // this._displayResult(data[0],data[1])
+        // text.value = data[2]
     }
 
     // reset(){

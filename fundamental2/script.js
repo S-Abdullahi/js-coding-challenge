@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function calcAge(birthyear) {
   return 2022 - birthyear;
@@ -20,7 +20,7 @@ const retirement = (birthyear, firstname) => {
   return `${firstname} has ${retireYear} years to retire`;
 };
 
-console.log(retirement(1995, "Abdullahi"));
+console.log(retirement(1995, 'Abdullahi'));
 
 function cutFruit(fruit) {
   return fruit * 4;
@@ -58,9 +58,9 @@ const koalaData2 = calcAverage(23, 34, 27);
 const winnerData2 = checkWinner(dolphinData2, koalaData2);
 
 //ARRAYS
-const friends = new Array("lekan", "qudus", "dabiri");
-friends.push("olaitan");
-friends.unshift("olaoniye");
+const friends = new Array('lekan', 'qudus', 'dabiri');
+friends.push('olaitan');
+friends.unshift('olaoniye');
 friends.pop();
 friends.shift();
 console.log(friends[1]);
@@ -99,12 +99,12 @@ console.log(total);
 
 //OBJECTS
 const abdullahi = {
-  firstName: "Abdullahi",
-  lastName: "Salawu",
+  firstName: 'Abdullahi',
+  lastName: 'Salawu',
   year: 1995,
-  occupation: "Software Engineer",
-  location: "Osun state",
-  friends: ["lekan", "qudus", "olaitan"],
+  occupation: 'Software Engineer',
+  location: 'Osun state',
+  friends: ['lekan', 'qudus', 'olaitan'],
   hasDriversLicense: true,
 
   calcAge: function () {
@@ -128,8 +128,8 @@ console.log(abdullahi.summary());
 
 //CHALLENGE #3
 const mark = {
-  firstName: "Mark",
-  lastName: "Miller",
+  firstName: 'Mark',
+  lastName: 'Miller',
   mass: 78,
   height: 1.69,
 
@@ -139,8 +139,8 @@ const mark = {
 };
 
 const john = {
-  firstName: "John",
-  lastName: "Smith",
+  firstName: 'John',
+  lastName: 'Smith',
   mass: 92,
   height: 1.95,
 
@@ -161,7 +161,7 @@ if (markScore > johnScore) {
     `${john.firstName}'s BMI (${johnScore}) is higher than ${john.firstName} (${markScore})`
   );
 } else {
-  console.log("it was a draw!!!");
+  console.log('it was a draw!!!');
 }
 
 //looping array from the back
@@ -228,37 +228,49 @@ console.log(calcArrayAverage(steveTotal));
 // console.log(steveTotal)
 
 //calculate temperature amplitude
-function calcTempAmplitude(temp){
-    let max = temp[0]
-    let min = temp[0]
+function calcTempAmplitude(temp) {
+  let max = temp[0];
+  let min = temp[0];
 
-    for (let i = 0; i < temp.length; i++){
-        if (typeof temp[i] !== 'number') continue;
-        if (max > temp[i]) max = temp[i]
-        if (min < temp[i]) min = temp[i]
-    }
-    return max -min 
+  for (let i = 0; i < temp.length; i++) {
+    if (typeof temp[i] !== 'number') continue;
+    if (max > temp[i]) max = temp[i];
+    if (min < temp[i]) min = temp[i];
+  }
+  return max - min;
 }
 
-const temp = [3, -1, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5]
-const amplitude = calcTempAmplitude(temp)
-console.log(amplitude)
+const temp = [3, -1, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+const amplitude = calcTempAmplitude(temp);
+console.log(amplitude);
 
-function calcTempAmplitude2(temp1, temp2){
-    let temp = temp1.concat(temp2)
+function calcTempAmplitude2(temp1, temp2) {
+  let temp = temp1.concat(temp2);
 
-    let max = temp[0]
-    let min = temp[0]
+  let max = temp[0];
+  let min = temp[0];
 
-    for (let i = 0; i < temp.length; i++){
-        if (typeof temp[i] !== 'number') continue;
-        if (max > temp[i]) max = temp[i]
-        if (min < temp[i]) min = temp[i]
-    }
-    return max -min 
+  for (let i = 0; i < temp.length; i++) {
+    if (typeof temp[i] !== 'number') continue;
+    if (max > temp[i]) max = temp[i];
+    if (min < temp[i]) min = temp[i];
+  }
+  return max - min;
 }
 
-const temp1 = [3, -5, 7, 9 , -2, 10, 33]
-const temp2 = [4, 6, 9, -3]
-const amplitude2 = calcTempAmplitude2(temp1, temp2)
-console.log(amplitude2)
+const temp1 = [3, -5, 7, 9, -2, 10, 33];
+const temp2 = [4, 6, 9, -3];
+const amplitude2 = calcTempAmplitude2(temp1, temp2);
+console.log(amplitude2);
+
+const arr = [3, 6, 7, 8];
+const arrSquare = arr.map(i => i ** 2);
+console.log([...arrSquare]);
+
+const names = ['alice', 'bob', 'michel', 'daniella'];
+const capNames = names.map(name => name[0].toUpperCase() + name.slice(1));
+console.log([...capNames]);
+
+const givenNames = ['Bulbasaur', 'Charmader', 'Squirt'];
+const wrapNames = givenNames.map(name => `<p>${name}</p>`);
+console.log([...wrapNames]);
